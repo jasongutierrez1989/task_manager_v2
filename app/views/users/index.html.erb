@@ -1,0 +1,9 @@
+<h1>Here are all Current Users</h1>
+
+<ul>
+<% @users.each do |user| %>
+<div>
+  <li><%= user.name %></li>
+</div>
+<% end %>
+</ul>
