@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -20,15 +21,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "Updated Profile!"
       redirect_to user_path
@@ -38,8 +36,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user.destroy
+  end
+
 private
   def user_params
     params.require(:user).permit(:name, :email, :password, :job)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end
