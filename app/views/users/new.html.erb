@@ -1,9 +1,13 @@
 <h1>Create a new User</h1>
 
-<%= form_for :user do |f| %>
-<br>Name: <%= f.text_field :name %></br>
-<br>Job: <%= f.text_field :job %></br>
-<br>Email: <%= f.text_field :email %></br>
-<br>Password: <%= f.text_field :password_digest %></br>
+<%= form_for :user, url: users_path do |f| %>
+<br><%= f.label :name %>
+<%= f.text_field :name %></br>
+<br><%= f.label :job %>
+<%= f.text_field :job %></br>
+<br><%= f.label :email %>
+<%= f.text_field :email %></br>
+<br><%= f.label :password %>
+<%= f.password_field :password %></br>
 <br><%= f.submit %></br>
 <% end %>
