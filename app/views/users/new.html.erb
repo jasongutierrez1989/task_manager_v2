@@ -1,6 +1,6 @@
 <h1>Create a new User</h1>
 
-<%= form_for :user, url: users_path do |f| %>
+<%= form_for @user do |f| %>
 <br><%= f.label :name %>
 <%= f.text_field :name %></br>
 <br><%= f.label :job %>
