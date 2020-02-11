@@ -1,4 +1,6 @@
 class Task < ApplicationRecord
-  belongs_to :users
-  belongs_to :location
+  belongs_to :user
+  belongs_to :location, optional: true
+
+  validates_presence_of :name
 end
