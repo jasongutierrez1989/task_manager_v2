@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     if @task.save!
       flash[:success] = "New Task created!"
-      redirect_to task_path @task
+      redirect_to task_path(@task)
     else
       flash[:danger] = "Task not created"
       render "new"
@@ -29,7 +29,7 @@ class TasksController < ApplicationController
   def update
     if @task.update_attributes(task_params)
       flash[:success] = "Updated task!"
-      redirect_to task_path
+      redirect_to task_path(@task)
     else
       flash[:danger] = "Not saved, please try again"
       render 'edit'
@@ -42,7 +42,7 @@ class TasksController < ApplicationController
 
 private
   def task_params
-    params.require(:task).permit(:name, :description)
+    params.require(:task).permit(:name, :description, :user_id, :location_id)
   end
 
   def set_task
