@@ -16,5 +16,15 @@
   </div>
 <% end %>
     <%= yield %>
+
+    <footer>
+      <% if request.path != "/home" && request.path != "/" && request.path != "/login" && logged_in? %>
+        <br></br><%= link_to "Home", "/home" %><br></br>
+      <% end %>
+      <% if logged_in? %>
+        <br><%= link_to "Log Out", "/logout" %></br>
+      <% end %>
+    </footer>
+
   </body>
 </html>

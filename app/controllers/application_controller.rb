@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def requrie_login
+  def require_login
     redirect_to '/' unless session.include? :user_id
   end
 
