@@ -2,11 +2,13 @@ Rails.application.routes.draw do
 
   root 'sessions#welcome'
 
+  get '/home' => 'sessions#home'
+
   get '/login' => 'sessions#new'
-  
-  get '/login' =>'sessions#login'
 
+  post '/login' => 'sessions#home'
 
+  get '/logout' => 'sessions#logout'
 
   resources :users
 
