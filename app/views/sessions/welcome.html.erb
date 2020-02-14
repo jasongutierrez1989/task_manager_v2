@@ -1,0 +1,14 @@
+<h1>Task Manager</h1>
+
+<div>
+  <h3>Menu</h3>
+</div>
+
+<ul>
+  <% if !logged_in? %>
+    <li><%= link_to "Log In", "/login" %></li>
+    <li><%= link_to "Sign Up", "/users/new" %></li>
+  <% else%>
+    <li><%= link_to "Home", "/home" %></li>
+  <% end %>
+</ul>
