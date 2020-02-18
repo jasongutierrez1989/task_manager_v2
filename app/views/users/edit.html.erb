@@ -1,13 +1,3 @@
 <h1>Edit Profile</h1>
 
-<%= form_for @user do |f| %>
-<br><%= f.label :name %>
-<%= f.text_field :name %></br>
-<br><%= f.label :job %>
-<%= f.text_field :job %></br>
-<br><%= f.label :email %>
-<%= f.text_field :email %></br>
-<br><%= f.label :password %>
-<%= f.password_field :password %></br>
-<br><%= f.submit %></br>
-<% end %>
+<%= render 'form' %>

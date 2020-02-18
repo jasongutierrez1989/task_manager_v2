@@ -1,6 +1,17 @@
 <h1><%= @user.name %>'s Profile</h1>
 
-<h3><%= @user.email %></h3>
-<h3><%= @user.job %></h3>
+<h4><%= @user.email %></h4>
+<h4><%= @user.job %></h4>
 
-<%= link_to "Edit", edit_user_path(@user) %>
+<% if @user.tasks %>
+<h3>Tasks:</h3>
+<ul>
+  <% @user.tasks.each do |a| %>
+    <li><%= link_to a.name, location_task_path(a.location, a) %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<% if (logged_in? && current_user.id === @user.id) || current_user.admin == true %>
+  <%= link_to "Edit", edit_user_path(@user) %>
+<% end %>
