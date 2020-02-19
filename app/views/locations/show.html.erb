@@ -1,7 +1,17 @@
-<h1><%= @location.name %></h1>
+<h1>Location Information</h1>
 
-<%= @location.description %>
-<br></br>
+<h3><%= @location.name %></h3>
+
+<p>Description: <%= @location.description %></p>
+<h3>Tasks:</h3>
+<ul>
+  <% @location.tasks.each do |a| %>
+    <li><%= link_to a.name, task_path(a.id) %></li>
+  <% end %>
+</ul>
 <br>
 <%= link_to "Edit", edit_location_path(@location) %>
 </br>
+<br>
+<p><%= link_to "Add task", new_task_path(@location) %></p>
+<br></br>

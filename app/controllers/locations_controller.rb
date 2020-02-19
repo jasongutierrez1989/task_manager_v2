@@ -38,11 +38,13 @@ class LocationsController < ApplicationController
 
   def destroy
     @location.destroy
+    flash[:notice] = "Location deleted."
+      redirect_to '/locations/'
   end
 
 private
   def location_params
-    params.require(:location).permit(:name, :description)
+    params.require(:location).permit(:name, :description, :task_ids => [])
   end
 
   def set_location

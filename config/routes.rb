@@ -12,10 +12,10 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :tasks
+  #resources :tasks
 
-  resources :locations do
-    resources :tasks
+  resources :tasks do
+    resources :locations
   end
 
   resources :locations do
