@@ -1,0 +1,23 @@
+<% if @task.errors.any? %>
+  <% @task.errors.full_messages.each do |msg| %>
+    <%= msg %><br>
+  <% end %>
+<% end %>
+<div class="field_with_errors">
+<%= form_for @task do |f| %>
+<br><%= f.label :name %>
+<%= f.text_field :name %></br>
+<br><%= f.label :description %>
+<%= f.text_field :description %></br>
+<br></br>
+<%= f.label :location_id %>
+<br><%= f.select(:location_id) do %>
+  <%= options_from_collection_for_select(Location.all, :id, :name, :selected => @task.location_id) %>
+<% end %></br>
+<%= f.label :user_id %>
+<br><%= f.select(:user_id) do %>
+  <%= options_from_collection_for_select(User.all, :id, :name, :selected => @task.user_id) %>
+<% end %></br>
+<br><%= f.submit %></br>
+<% end %>
+</div>

@@ -13,8 +13,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       flash[:success] = "User was created successfully!"
-      redirect_to user_path @user
+      redirect_to user_path(@user)
     else
       flash[:danger] = "Information not saved, try again"
       render 'new'
@@ -38,12 +39,13 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
+    current_user.destroy
+    redirect_to '/'
   end
 
 private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :job)
+    params.require(:user).permit(:name, :email, :password, :job, :admin, :id)
   end
 
   def set_user
