@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_login, except: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   #scope :admin?, -> { where(admin: true)}
 
@@ -39,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    current_user.destroy
+    @user.destroy
     redirect_to '/'
   end
 

@@ -15,11 +15,11 @@ Rails.application.routes.draw do
 
   resources :users
 
-  #resources :tasks
-
-  resources :tasks do
-    resources :locations
+  resources :locations do
+    resources :tasks, only: [:new, :show]
   end
+
+  resources :tasks
 
   resources :locations do
     delete :destroy

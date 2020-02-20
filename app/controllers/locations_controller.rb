@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  before_action :require_login
   before_action :set_location, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -29,7 +30,7 @@ class LocationsController < ApplicationController
   def update
     if @location.update_attributes(location_params)
       flash[:success] = "Updated Location!"
-      redirect_to location_path
+      redirect_to location_path(@location)
     else
       flash[:danger] = "Not saved, please try again"
       render 'edit'
