@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get '/logout' => 'sessions#logout'
 
+  get '/users/admin' => 'users#admin'
+
   resources :users
 
   resources :locations do

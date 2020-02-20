@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_login, except: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  #scope :admin?, -> { where(admin: true)}
 
   def index
     @users = User.all
@@ -42,6 +41,10 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     redirect_to '/'
+  end
+
+  def admin
+    @users = User.all.admin?
   end
 
 private
