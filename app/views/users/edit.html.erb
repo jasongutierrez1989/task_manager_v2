@@ -1,10 +1,5 @@
 <h1>Edit Profile</h1>
-<%= form_for @user do |f| %>
-  <% if current_user.admin? %>
-    <br><%= f.label :admin %>
-    <%= f.check_box :admin, {}, "true", "false" %></br>
-  <% end %>
-<% end %>
+
 <%= render 'form' %>
 <% if (current_user === @user && logged_in?) || current_user.admin? %>
 <br><%= form_tag user_path(@user), method: "delete" do %>
