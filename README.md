@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Task Manager
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is a tool that can be used to assign tasks to users. You can specify the task location, edit task and location info including who/where it is assigned to. You can edit your profile to remove tasks/locations, and update name/email, etc. The task manager allows sign-up though Facebook! Admin functionality is set up to allow admins to edit/delete profiles as well as set new admins.
