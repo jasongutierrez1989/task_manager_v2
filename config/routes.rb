@@ -23,8 +23,4 @@ Rails.application.routes.draw do
 
   resources :tasks
 
-  resources :locations do
-    delete :destroy
-  end
-
 end
